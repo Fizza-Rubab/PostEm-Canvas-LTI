@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <img src={{ url_for('static', filename='img/postem logo.png') }} style="width:120px" />
+    <h1>Welcome to Post'Em</h1>
+
+
+    <h2>Instructions</h2>
+    Use the form below to upload files:
+    <br>
+    1. In the text box, enter the name of the assignment whose feedback you want to share. Ensure that the name is unique.
+    <br>
+    2. Upload a csv file that contains the student grades and feeback for the assignment. Ensure that
+    <ul>
+        <li> CSV is correct and does not contain rich text.</li>
+        <li> CSV contains a single line header</li>
+        <li> CSV contains a 'SIS User ID' column which contains Habib IDs for example '06161' of every student.</li>
+        <li> Ensure that the CSV fileName and the Assignment Name does not contain Hyphen or Dash(-)</li>
+    </ul>
+    <br>
+    <div>
+    <form action = "https://fizzaa39.pythonanywhere.com/uploader/{{course}}" method = "POST"
+         enctype = "multipart/form-data">
+        <br>
+        <label for="aname">Assignment name:</label>
+        <input type="text" id="aname" name="aname"><br><br>
+         <input type = "file" name = "file" />
+         <input type = "submit" value="Upload" />
+      </form>
+    </div>
+    <br>
+    <h1>Assignments and Linked CSVs</h1>
+    <p>These are the Assignments linked with feedbacks and their corresponding CSVs</p>
+    {% for item in data %}
+        <li>{{item[0]}} <a href={{item[2]}}>{{ item[1] }} &nbsp;<img style="height:15px;width=15px;" src={{ url_for('static', filename='img/redirect.jpg') }}></a> <a href={{item[3]}}> &#10006 </a></li>
+    {% endfor %}
+</div>
+
+{% endblock content %}

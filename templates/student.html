@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+th, td {
+  border: 1px solid black;
+  text-align: center;
+}
+</style>
+<div>
+    <h1>Feedback for {{assignName}}</h1>
+
+    <div>
+        <table style="table-layout: fixed; width: 100%;border: 1px solid black;text-align: center;">
+            {% for i in range(datalen) %}
+            <tr>
+                <td style="word-break:break-all;" ><b>{{data[0][i]}}</b></td>
+                <td style="word-break:break-all;">{{data[1][i]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock content %}

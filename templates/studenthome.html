@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <img src={{ url_for('static', filename='img/postem logo.png') }} style="width:120px" />
+    <h1>Welcome to Post'Em</h1>
+    <h2>Assignments and Feedbacks</h2>
+    <p>Click on the assignment below to get its feedback</p>
+    {% for item in data %}
+        <li><a href="https://fizzaa39.pythonanywhere.com/student/{{sourcedid}}/{{course}}/{{item[0]}}">{{ item[0] }} &nbsp;<img style="height:15px;width=15px;" src={{ url_for('static', filename='img/redirect.jpg') }}></a></li>
+    {% endfor %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,6 @@
+Flask==2.0.3
+Flask-SQLAlchemy==2.3.2
+oauth==1.0.1
+jinja2==3.0.1
+-e git+https://github.com/ucfcdl/pylti.git@roles#egg=PyLTI
+gunicorn

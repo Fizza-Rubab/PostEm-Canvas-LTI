@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <img src={{ url_for('static', filename='img/postem icon.png') }}>
+    <h1>Assignments and Linked CSVs</h1>
+    <p>These are the Assignments linked with feedbacks and their corresponding CSVs</p>
+    {% for item in data %}
+        <li>{{item[0]}} <a href={{item[2]}}>{{ item[1] }} &nbsp;  &nbsp;<img style="height:25px;width=25px;" src={{ url_for('static', filename='img/redirect.jpg') }}></a></li>
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
